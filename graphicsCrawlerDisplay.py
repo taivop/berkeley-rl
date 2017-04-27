@@ -175,7 +175,7 @@ class Application:
             self.robotEnvironment = \
                 pendulum.PendulumRobotEnvironment(self.robot)
         else:
-            raise "Unknown RobotType"
+            raise Exception("Unknown RobotType")
 
         # Init Agent
         simulationFn = lambda agent: \
@@ -220,13 +220,13 @@ class Application:
             print 'Reset!'
         action = self.learner.getAction(state)
         if action == None:
-            raise 'None action returned: Code Not Complete'
+            raise Exception('None action returned: Code Not Complete')
         nextState, reward = self.robotEnvironment.doAction(action)
         self.learner.observeTransition(state, action, nextState, reward)
 
     def animatePolicy(self):
         if robotType != 'pendulum':
-            raise 'Only pendulum can animatePolicy'
+            raise Exception('Only pendulum can animatePolicy')
 
 
         totWidth = self.canvas.winfo_reqwidth()

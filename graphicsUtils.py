@@ -81,7 +81,7 @@ def begin_graphics(width=640, height=480, color=formatColor(0, 0, 0), title=None
         _canvas.update()
     except:
         _root_window = None
-        raise
+        raise Exception()
 
     # Bind to key-down and key-up events
     _root_window.bind( "<KeyPress>", _keypress )
@@ -326,7 +326,7 @@ def move_to(object, x, y=None,
             d_w=Tkinter.tkinter.DONT_WAIT):
     if y is None:
         try: x, y = x
-        except: raise  'incomprehensible coordinates'
+        except: raise Exception('incomprehensible coordinates')
 
     horiz = True
     newCoords = []
@@ -348,7 +348,7 @@ def move_by(object, x, y=None,
             d_w=Tkinter.tkinter.DONT_WAIT, lift=False):
     if y is None:
         try: x, y = x
-        except: raise Exception, 'incomprehensible coordinates'
+        except: raise Exception('incomprehensible coordinates')
 
     horiz = True
     newCoords = []
